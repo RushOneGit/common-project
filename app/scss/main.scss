@@ -1,0 +1,44 @@
+$breakpoints: (
+  'xs-phone': 320px,
+  'phone': 480px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'widescreen': 1200px
+);
+
+// keywords
+$media-expressions: (
+  'screen': 'screen',
+  'print': 'print',
+  'handheld': 'handheld',
+  'landscape': '(orientation: landscape)',
+  'portrait': '(orientation: portrait)',
+  'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+  'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
+
+// ligatured operators ≥ ≤
+
+@import 'vendors/include-media';
+@import 'vendors/normalize';
+
+@import 'base/_variables.scss';
+@import 'base/_functions.scss';
+@import 'base/_mixins.scss';
+@import 'base/_helpers.scss';
+@import 'base/_reset.scss';
+@import 'base/_typography.scss';
+@import 'base/_forms.scss';
+@import 'base/_plugins.scss';
+@import 'base/_wp-reset.scss';
+
+/*
+Theme Name: PROJECT NAME
+Author: AUTHOR
+Description: Designed by AUTHOR.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: white, light
+Text Domain: am
+*/
