@@ -210,9 +210,10 @@ gulp.task('scaffold', function() {
 	);
 });
 
-gulp.task('default', ['browserSync', 'js', 'scss'], function() {
+gulp.task('default', ['browserSync', 'js', 'scss', 'html'], function() {
 	gulp.watch('app/js/**/**', ['js']);
 	gulp.watch('app/scss/**', ['scss']);
+	gulp.watch('app/*.html', ['html']);
 });
 
 gulp.task('gulp-jade', ['browserSync', 'js', 'scss', 'jade'], function() {
