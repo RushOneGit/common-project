@@ -31,14 +31,23 @@ $btn-padding: 0.4em 0.7em !default;
 $btn-font-size: inherit !default;
 
 // Forms
-$form-element-padding: 0 20px!default;
-$form-element-height: 50px!default;
+$form-element-padding: $btn-padding !default;
+$form-element-border-color: $gray !default;
+$form-element-focus-border-color: $black !default;
+$placeholder-color: $gray !default;
 
 // Headers
+$h1-font-size: 30px !default;
+$h2-font-size: 27px !default;
+$h3-font-size: 24px !default;
+$h4-font-size: 21px !default;
+$h5-font-size: 17px !default;
+$h6-font-size: 15px !default;
+
 $headings-font-family: inherit !default;
 $headings-color: inherit !default;
 
-$width: 1200px;
-
 
 $animation-speed: 0.3s;
+
+$width: 1200px;
