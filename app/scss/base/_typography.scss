@@ -14,28 +14,29 @@ h6, .h6,
 }
 
 h1, .h1 {
-  @include font-size(30);
+  font-size: $h1-font-size;
 }
 
 h2, .h2 {
-  @include font-size(27);
+  font-size: $h2-font-size;
 }
 
 h3, .h3 {
-  @include font-size(24);
+  font-size: $h3-font-size;
 }
 
 h4, .h4 {
-  @include font-size(21);
+  font-size: $h4-font-size;
 }
 
 h5, .h5 {
-  @include font-size(17);
+  font-size: $h5-font-size;
 }
 
 h6, .h6 {
-  @include font-size(15);
+  font-size: $h6-font-size;
 }
+
 
 p {
   margin: 0 0 1em;
