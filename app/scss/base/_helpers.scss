@@ -68,7 +68,7 @@
   padding-right: 30px;
   @include clearfix();
 
-  @media(max-width: 767px) {
+  @include media('<phone') {
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -83,7 +83,7 @@
   padding-right: 30px;
   display: flex;
 
-  @media(max-width: 767px) {
+  @include media('<phone') {
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -103,7 +103,6 @@
 		text-decoration: none;
 	}
 }
-
 
 .bg-stretch {
 	position: absolute;
