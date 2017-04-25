@@ -90,11 +90,18 @@
 }
 
 .btn {
+	color: $btn-color;
+	background-color: $btn-background;
+	text-transform: uppercase;
+	padding: $btn-padding;
+	text-decoration: none;
+	display: inline-block;
+	transition: all .3s ease;
 
-
-  &:hover {
-
-  }
+	&:hover {
+		background-color: darken($btn-background, 10%);
+		text-decoration: none;
+	}
 }
 
 
