@@ -31,7 +31,8 @@ $btn-padding: 20px 40px !default;
 $btn-font-size: inherit !default;
 
 // Forms
-$form-element-padding: $btn-padding !default;
+$form-element-padding: 0 30px !default;
+$form-element-height: 30px !default;
 $form-element-border-color: $gray !default;
 $form-element-focus-border-color: $black !default;
 $placeholder-color: $gray !default;
