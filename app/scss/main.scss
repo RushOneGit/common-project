@@ -43,3 +43,22 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: white, light
 Text Domain: am
 */
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+.wrapper {
+	display: flex;
+	min-height: 100%;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.main {
+	flex: 1 1 auto;
+}
