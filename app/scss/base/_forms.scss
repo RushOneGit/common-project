@@ -34,7 +34,11 @@ input[type='search'],
 input[type='password'],
 input[type='url'],
 input[type='date'] {
-  
+  height: $form-element-height;
+  line-height: $form-element-height;
+  padding: $form-element-padding;
+  width: 360px;
+  max-width: 100%;
 }
 
 select {
@@ -44,6 +48,16 @@ select {
 textarea {
   resize: vertical;
   vertical-align: top;
+  height: 150px;
+	width: 500px;
+	max-width: 100%;
+	padding: 10px 15px;
+}
+
+input[type=file] {
+	@include media('<phone') {
+		max-width: 100%;
+	}
 }
 
 button,
@@ -54,5 +68,9 @@ input[type='submit'] {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
   cursor: pointer;
+  @extend .btn;
+  height: $form-element-height;
+  line-height: $form-element-height;
+  padding: $form-element-padding;
 }
 
