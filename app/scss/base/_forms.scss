@@ -17,10 +17,16 @@ textarea {
   -webkit-border-radius: 0;
   box-sizing: border-box;
   border: none;
-  border: 1px solid $form-element-border-color;
-  // &:focus {
-    
-  // }
+  background-color: #0772aa;
+  border-radius: 5px;
+  transition: all .3s ease;
+  color: $dark-violet;
+
+  &:focus,
+  &.active {
+    background-color: $white;
+    outline: none;
+  }
 
   @include placeholder {
     color: $gray;
@@ -37,8 +43,12 @@ input[type='date'] {
   height: $form-element-height;
   line-height: $form-element-height;
   padding: $form-element-padding;
-  width: 360px;
+  width: 366px;
   max-width: 100%;
+
+  @include media('<tablet') {
+    width: 100%;
+  }
 }
 
 select {
@@ -48,16 +58,22 @@ select {
 textarea {
   resize: vertical;
   vertical-align: top;
-  height: 150px;
-	width: 500px;
+  height: 218px;
 	max-width: 100%;
 	padding: 10px 15px;
+  width: 100%;
 }
 
 input[type=file] {
 	@include media('<phone') {
 		max-width: 100%;
 	}
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 button,
