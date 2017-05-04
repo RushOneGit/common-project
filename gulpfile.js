@@ -100,9 +100,9 @@ gulp.task('js', function() {
 gulp.task('js-deploy', function() {
 	return gulp.src('app/*.html')
 		.pipe(useref())
-		.pipe(gulpif('*.js', concat('all.js')))
+		/*.pipe(gulpif('*.js', concat('jquery.main.js')))*/
+		.pipe(gulpif('*.js', gulp.dest('dist/')))
 		.pipe(gulpif('*.html', gulp.dest('dist/')))
-		.pipe(gulpif('*.js', gulp.dest('dist/js')))
 });
 
 gulp.task('scss', function() {
