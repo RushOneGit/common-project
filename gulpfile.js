@@ -15,7 +15,7 @@ var useref                = require('gulp-useref');
 var gulpif                = require('gulp-if');
 var clean                 = require('gulp-clean');
 var cache                 = require('gulp-cache');
-
+var notify                = require("gulp-notify");
 
 gulp.task('browserSync', function() {
 	browserSync({
@@ -63,7 +63,7 @@ gulp.task('images', function() {
 
 gulp.task('svg-images', function() {
 	gulp.src('dist/images/*.svg')
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(svgmin({
 			plugins: [{
 					removeDoctype: false
@@ -85,14 +85,12 @@ gulp.task('svg-images', function() {
 
 gulp.task('images-deploy', function() {
 	gulp.src(['app/images/**/*', '!app/images/README'])
-		.pipe(plumber())
 		.pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('js', function() {
 	return gulp.src('app/js/**/*.js')
-		.pipe(plumber())
-		.on('error', gutil.log)
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(gulp.dest('app/js'))
 		.pipe(browserSync.reload({stream: true}));
 });
@@ -100,19 +98,13 @@ gulp.task('js', function() {
 gulp.task('js-deploy', function() {
 	return gulp.src('app/*.html')
 		.pipe(useref())
-		/*.pipe(gulpif('*.js', concat('jquery.main.js')))*/
 		.pipe(gulpif('*.js', gulp.dest('dist/')))
 		.pipe(gulpif('*.html', gulp.dest('dist/')))
 });
 
 gulp.task('scss', function() {
-	return gulp.src('app/scss/main.scss')
-		.pipe(plumber({
-			errorHandler: function (err) {
-				console.log(err);
-				this.emit('end');
-			}
-		}))
+	return gulp.src('app/scss/*.scss')
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(sass({
 			errLogToConsole: true,
 			includePaths: [
@@ -141,7 +133,7 @@ gulp.task('css-deploy', function() {
 
 gulp.task('html', function() {
 	return gulp.src('app/*.html')
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(browserSync.reload({stream: true}))
 		.on('error', gutil.log);
 });
@@ -150,14 +142,14 @@ gulp.task('folder-deploy', function() {
 	gulp.src('app/*.json')
 		.pipe(gulp.dest('dist'));
 
-	gulp.src('app/video')
-		.pipe(gulp.dest('dist/video'));
+	gulp.src('app/scss/**/*')
+		.pipe(gulp.dest('dist/scss'));
 
 	gulp.src('app/fonts/**/*')
 		.pipe(gulp.dest('dist/fonts'));
 
-	gulp.src('app/scss/**/*')
-		.pipe(gulp.dest('dist/scss'));
+	gulp.src('app/video')
+		.pipe(gulp.dest('dist/video'));
 });
 
 gulp.task('clean', function () {
@@ -168,7 +160,6 @@ gulp.task('clean', function () {
 gulp.task('clear-cache', function (done) {
 	return cache.clearAll(done);
 });
-
 
 gulp.task('default', ['browserSync', 'js', 'scss', 'html'], function() {
 	gulp.watch('app/js/**/**', ['js']);
