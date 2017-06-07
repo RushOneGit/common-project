@@ -11,8 +11,6 @@ var plumber               = require('gulp-plumber');
 var gcmq                  = require('gulp-group-css-media-queries');
 var svgstore              = require('gulp-svgstore');
 var svgmin                = require('gulp-svgmin');
-var useref                = require('gulp-useref');
-var gulpif                = require('gulp-if');
 var clean                 = require('gulp-clean');
 var cache                 = require('gulp-cache');
 var notify                = require("gulp-notify");
@@ -96,10 +94,9 @@ gulp.task('js', function() {
 });
 
 gulp.task('js-deploy', function() {
-	return gulp.src('app/*.html')
-		.pipe(useref())
-		.pipe(gulpif('*.js', gulp.dest('dist/')))
-		.pipe(gulpif('*.html', gulp.dest('dist/')))
+	return gulp.src('app/js/**/*.js')
+		.pipe(plumber())
+		.pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('scss', function() {
@@ -122,13 +119,9 @@ gulp.task('scss', function() {
 });
 
 gulp.task('css-deploy', function() {
-
-	return gulp.src('app/*.html')
-		.pipe(useref())
-		.pipe(gulpif('*.css', concat('main.css')))
-		.pipe(gulpif('*.css', gcmq()))
-		.pipe(gulpif('*.css', gulp.dest('dist/css')))
-
+	return gulp.src('app/scss/main.scss')
+		.pipe(concat('main.css'))
+		.pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('html', function() {
