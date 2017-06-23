@@ -119,7 +119,7 @@ gulp.task('scss', function() {
 });
 
 gulp.task('css-deploy', function() {
-	return gulp.src('app/scss/main.scss')
+	return gulp.src('app/css/main.css')
 		.pipe(concat('main.css'))
 		.pipe(gulp.dest('dist/css'));
 });
@@ -132,6 +132,9 @@ gulp.task('html', function() {
 });
 
 gulp.task('folder-deploy', function() {
+	gulp.src('app/*.html')
+		.pipe(gulp.dest('dist'));
+
 	gulp.src('app/*.json')
 		.pipe(gulp.dest('dist'));
 
