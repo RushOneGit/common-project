@@ -163,4 +163,4 @@ gulp.task('default', ['browserSync', 'js', 'scss', 'html'], function() {
 	gulp.watch('app/*.html', ['html']);
 });
 
-gulp.task('deploy', gulpSequence('clear-cache', 'clean', ['folder-deploy', 'js-deploy', 'css-deploy', 'images-deploy', 'images', 'svg-images']));
+gulp.task('deploy', gulpSequence('clear-cache', 'clean', ['folder-deploy', 'js-deploy', 'css-deploy', 'images', 'svg-images', 'images-deploy']));
