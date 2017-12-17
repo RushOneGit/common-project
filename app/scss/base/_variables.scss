@@ -3,17 +3,16 @@
 // Color names - http://name-of-color.com/
 
 $gray: #999;
-$black: #333;
+$black: #000;
 $white: #fff;
 $light-blue: #0a9eeb;
 $dark-blue: #102747;
-$dark-violet: #303850;
 
 $base-font-sans-serif: 'Helvetica Neue', 'Helvetica', sans-serif;
 $base-font-serif: 'Times', 'Baskerville', 'Georgia', serif;
 
 // Body
-$base-text-color: $dark-violet !default;
+$base-text-color: $black !default;
 $base-background-color: $white !default;
 $font-size-base: 18px !default;
 $line-height-base: 1.5 !default;
